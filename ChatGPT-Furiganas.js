@@ -3,7 +3,7 @@
 // @version      2025.01.22.10.10
 // @description  ChatGPT Furigana formating
 // @author       Remy Maetz
-// @match        https://chatgpt.com/
+// @match        https://chatgpt.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=chatgpt.com
 // @grant        none
 // ==/UserScript==
