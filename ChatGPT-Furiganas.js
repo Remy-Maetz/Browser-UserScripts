@@ -11,9 +11,17 @@
 (function() {
     'use strict';
 
+    let isFormating;
+
     // Fonction pour transformer le texte en ajoutant les furigana
     function formatTextWithFurigana(element) {
+        // Si la fonction de formatage est déjà en cours sur la page, on ne la rappelle pas.
+        if (isFormating)
+          return;
+      
         if (!element || element.nodeType !== Node.ELEMENT_NODE) return;
+
+        isFormating = true;
 
         // Sélectionne tous les noeuds texte dans l'élément
         let walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
@@ -32,6 +40,8 @@
                 node.parentNode.replaceChild(span, node);
             }
         }
+
+        isFormating = false;
     }
 
     // Appliquer le formatage à tout le body ou une section spécifique
@@ -41,7 +51,7 @@
     }
 
     let formatTimeout;
-    
+
     // Observer pour détecter les changements dynamiques avec délai
     const observer = new MutationObserver(() => {
         clearTimeout(formatTimeout); // Réinitialise le délai à chaque changement
