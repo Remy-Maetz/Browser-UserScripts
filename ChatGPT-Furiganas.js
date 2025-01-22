@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ChatGPT Furigana Formater
-// @version      2025.01.22.10.58
+// @version      2025.01.22.15.57
 // @description  ChatGPT Furigana formating
 // @author       Remy Maetz
 // @match        https://chatgpt.com/*
@@ -32,7 +32,7 @@
 
         // Parcourir les nœuds collectés et appliquer les modifications
         textNodes.forEach(node => {
-            let updatedText = node.nodeValue.replace(/(\p{Script=Han})\{\{(.*?)\}\}/gu, (match, kanji, kana) => {
+            let updatedText = node.nodeValue.replace(/\[\[(.*?)\]\]\{\{(.*?)\}\}/gu, (match, kanji, kana) => {
                 return `<ruby>${kanji}<rt>${kana}</rt></ruby>`;
             });
 
