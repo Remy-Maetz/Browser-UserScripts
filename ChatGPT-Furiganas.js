@@ -40,6 +40,8 @@
         formatTextWithFurigana(target);
     }
 
+    let formatTimeout;
+    
     // Observer pour détecter les changements dynamiques avec délai
     const observer = new MutationObserver(() => {
         clearTimeout(formatTimeout); // Réinitialise le délai à chaque changement
