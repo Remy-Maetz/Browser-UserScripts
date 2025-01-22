@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ChatGPT Furigana Formater
-// @version      2025-01-22
+// @version      2025.01.22.10.10
 // @description  ChatGPT Furigana formating
 // @author       Remy Maetz
 // @match        https://chatgpt.com/
