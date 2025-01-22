@@ -40,9 +40,12 @@
         formatTextWithFurigana(target);
     }
 
-    // Exécuter la fonction régulièrement pour capturer les ajouts dynamiques
+    // Observer pour détecter les changements dynamiques avec délai
     const observer = new MutationObserver(() => {
-        applyFuriganaFormatting();
+        clearTimeout(formatTimeout); // Réinitialise le délai à chaque changement
+        formatTimeout = setTimeout(() => {
+            applyFuriganaFormatting();
+        }, 1000); // Délai de 1 seconde
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
