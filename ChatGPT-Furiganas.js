@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ChatGPT Furigana Formater
-// @version      2025.01.22.15.57
+// @version      2025.01.26.16.24
 // @description  ChatGPT Furigana formating
 // @author       Remy Maetz
 // @match        https://chatgpt.com/*
@@ -63,7 +63,7 @@
         clearTimeout(formatTimeout); // Réinitialise le délai à chaque changement
         formatTimeout = setTimeout(() => {
             applyFuriganaFormatting();
-        }, 1000); // Délai de 1 seconde
+        }, 5000); // Délai de 5 secondes
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
